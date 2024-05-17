@@ -1,0 +1,420 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'montserrat';
+    color: white;
+}
+*::selection{
+    background-color: #fff;
+    color: #a1d120;
+}
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+body::-webkit-scrollbar{
+    width:5px;
+    background-color: #259f33;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+body:hover{
+    cursor: default;
+}
+
+#cursor{
+    height: 22px;
+    width: 22px;
+    background-color: #86ae17;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 100;
+}
+#cursor-blur{
+    height: 350px;
+    width: 350px;
+    background-color: #86ae1731;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 2;
+    filter: blur(45px);
+}
+
+#nav{
+    height: 150px;
+    width: 100%;
+    padding: 0 75px;
+    gap: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+    font-weight: 100;
+    font-size: 16px;
+    position:fixed;
+    z-index: 99;
+}
+#nav h4{
+    font-weight: 500;
+}
+#nave div{
+    padding: 5px;
+}
+
+#nav img{
+    height: 75px;
+}
+
+video{
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+    position:fixed;
+    z-index: -10;
+}
+
+#main{
+    background-color: rgba(0, 0,0, 0.4);
+    
+    z-index: 0;
+
+}
+
+#page1{
+    position: relative;
+    z-index: 3;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+#page1 h1{
+    text-transform: uppercase;
+    font-size: 130px;
+    font-weight: 700;
+    position: relative;
+}
+#page1 h1::before{
+    content : "EAT. DRINK. PLAY";
+    color: black;
+    position:absolute;
+    top: -6px;
+    left: -6px;
+    z-index: -1;
+    -webkit-text-stroke: 4px #bef91b;
+}
+#page1 h3{
+    text-transform: uppercase;
+    font-size: 35px;
+    font-weight: 650;
+}
+#page1 p{
+    font-size: 20px;
+    margin-top: 10px;
+    width: 40%;
+    text-align: center;
+    font-weight: 500;
+}
+
+#page2{
+    position:relative; 
+    z-index: 3;
+    min-height: 100vh;
+    width: 100%;   
+}
+
+/*for horizontal scrolling things*/
+#scroller{
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    
+}
+.scroller-in{
+    animation-name: scroll;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    display: inline-block;
+}
+#scroller h4{
+     margin-right: 20px;
+    font-size: 120px;
+    font-weight: 800;
+    -webkit-text-stroke: 3px greenyellow;
+    display: inline-block;
+    color: transparent;
+    transition: color 0.3s ease-in; 
+}
+#scroller .scroller-in h4:hover {
+    color: greenyellow;
+    -webkit-text-stroke:1px #bef91b;
+    cursor: default;
+}
+
+
+#scroller::-webkit-scrollbar{
+    display: none;
+}
+
+@keyframes scroll {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+
+#about-us{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#about-us-in{
+    width: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#about-us-in h1{
+    font-size: 60px;
+    margin-top: 0;
+    /* align-self: self-start; */
+}
+#about-us-in p{
+    font-size: 20px;
+    /* align-self: self-end; */
+}
+
+#about-us img{
+    margin-top: 14px;
+    object-fit: cover;
+    height: 230px;
+    width: 230px;
+    border-radius: 20px;
+}
+
+#cards{
+    height: 55vh;
+    margin-top: 30px;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.cards{
+    height: 70%;
+    width: 20%;
+    border-radius: 20px;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    
+}
+#card1{
+    background-image: url('https://sidcup-golf-family.netlify.app/Assests/card1.avif');
+}
+#card2{
+    background-image: url('https://sidcup-golf-family.netlify.app/Assests/card2.webp');
+}
+#card3{
+    background-image: url('https://sidcup-golf-family.netlify.app/Assests/card3.avif');
+}
+.overlay{
+    background-color: #bef91b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 5px;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+#cards .cards:hover .overlay{
+    opacity: 100;
+}
+.overlay h3{
+    font-size: 23px;
+    text-transform: uppercase;
+    color: black;
+}
+.overlay p{
+    color: black;
+}
+
+
+#greendiv{
+    margin-top: 15px;
+    height: 180px;
+    background-image: linear-gradient(90deg, rgb(99, 160, 8), rgb(158, 239, 36));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#greendiv img{
+    height: 100%;
+    width: 15vw;
+    object-fit: cover;
+}
+#greendiv p{
+    text-transform: uppercase;
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#page3{
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+}
+#page3 div{
+    width: 60vw;
+    font-size: 35px;
+    text-align: center;
+    font-weight: bold;
+    
+}
+#page3 img{
+    height: 80px;
+    position: absolute;
+}
+#page3 #img1{
+    top: 5%;
+    left: 5%;
+
+}
+#page3 #img2{
+    bottom: 8%;
+    right: 8%;
+}
+
+#page4{
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
+    position: relative;
+    z-index: 3;
+}
+#page4 .elem{
+    width: 25vw;
+    height: 150px;
+    border: 1px solid black;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    z-index: 4;
+}
+.elem h1{
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #a1d120;
+    transition: all 0.2s linear;
+    color: black;
+}
+.elem img{
+    object-fit: fit;
+    width: 100%;
+}
+#page4 .elem h1:hover{
+    color:white;
+    background-color: transparent;
+}
+#page4 p{
+    position: absolute;
+    z-index: 3;
+    top: 19px;
+    text-transform: uppercase;
+    font-size: 84px;
+    font-weight: bold;
+    -webkit-text-stroke: #fffffff7 2px;
+    color: transparent;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+#page5{
+    background: linear-gradient(200deg, #259f33, #aee614);
+    height: 40vh;
+    position: relative;
+    z-index: 4;
+    display: flex;
+}
+#page5 div{
+    height: 100%;
+}
+#page5 #firstdiv{
+    background-image: url("https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-footer.svg");
+    background-size: cover;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+#page5 #seconddiv{
+    width: 54vw;
+    display: flex;
+    justify-content: space-between;
+    
+}
+#firstdiv, #thirddiv{
+    flex: 1;
+}
+#firstdiv img{
+    height: 100px;
+    margin-right: 60px;
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 30px;
+}
+#seconddiv .left{
+    font-size: 22px;
+    width: 36%;
+}
+#seconddiv h4{
+    color: #000;
+    font-weight: 650;
+}
+#seconddiv .mid{
+    font-size: 22px;
+    width: 36%;
+    padding: 0px 40px;
+}
+#seconddiv .right{
+    line-height: 20px;
+}
